@@ -24,9 +24,17 @@ var myGameArea = {
     draw: function(component) {
         this.context.fillStyle = component.color;
         this.context.fillRect(component.x, component.y, component.width, component.height);
+        
+      },
+      clear: function(){
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
       }
 }
-  
+
+function updateGameArea() {
+  myGameArea.clear()
+  myGameArea.draw(redSquare);
+}
 
 function su() {
     redSquare.y -= 30;
@@ -44,6 +52,3 @@ function su() {
     redSquare.x += 30;
   }
   
-function updateGameArea() {
-    myGameArea.draw(redSquare);
-}
